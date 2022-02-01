@@ -35,7 +35,7 @@
                                   <div class="col-md-12 pr-0 pl-0">
                                     <div class="row">
                                       <div class="form-group col-xl-3 col-md-3 col-sm-12">
-                                        <label for="estado" class="titles"><span class="punto"></span>Seleccionar Busqueda</label>
+                                        <label for="estado" class="titles"><span class="punto"></span>Buscar Por:</label>
                                         <ng-select dropdownPosition="bottom" class="sololetras" bindLabel="descripcion" bindValue="id" id="estado"
                                           name="estado" formControlName="prospecto" placeholder="Seleccione" 
                                           [(ngModel)]="prospectoVar.prospecto" [items]="prospectoBusquedad">
@@ -53,7 +53,7 @@
                                         </div>
                                       </div>
                                       <div class="form-group col-xl-3 col-md-3 col-sm-12">
-                                        <label for="descripcion" class="titles"><span class="punto"></span>Ingrese el valor</label>
+                                        <label for="descripcion" class="titles"><span class="punto"></span>Ingrese Valor:</label>
                                         <input class="form-control numeroMas" type="text" name="descripcion" id="Descripcion" formControlName="descripcion" 
                                          [(ngModel)]="prospectoVar.descripcion">
                   
@@ -77,51 +77,30 @@
                               <table  class="table table-striped table-bordered" cellspacing="0" width="100%">
                                   <thead class="text-center bg-light">
                                       <tr>
+                                        <th>Id</th>
                                         <th>Nombre</th>
                                         <th>Edad</th>
                                         <th>Email</th>
-                                        <th>ID</th>
-                                        <th>Estatus</th>
+                                        <th>Status</th>
+                                        <th>Opciones</th>
                                       </tr>
                                     </thead>
                                     <tbody class="text-center">
                                       <tr *ngIf="prospectos">
-                                        <!-- <td>{{i + 1}}</td> -->
+                                        <td class="text-left pl-3">{{prospectos.prospectoId}}</td>
                                         <td class="text-left pl-3">{{prospectos.prospectoName}}</td>
                                         <td class="text-left pl-3">{{prospectos.prospectoAge}}</td>
-                                        
                                         <td class="text-left pl-3">{{prospectos.prospectoMail}}</td>
-                                        <td class="text-left pl-3">{{prospectos.prospectoId}}</td>
                                         <td class="text-left pl-3">{{prospectos.prospectoStatus}}</td>
 
-                                        <!-- <td>
-                                          <div class="btn-group" dropdown container="body">
-                                            <button id="button-custom-html" dropdownToggle type="button"
-                                              class="btn btn-primary btn-sm mr-1  dropdown-toggle"
-                                              aria-controls="button-custom-html">Opciones<span class="caret"></span>
-                                            </button>
-                                            <ul id="button-custom-html" *dropdownMenu class="dropdown-menu" role="menu"
-                                              aria-labelledby="button-custom-html">
-                      
-                                              <li 
-                                               role="menuitem"><a class="dropdown-item fa fa-camera" href="#" onclick="return false;"
-                                                  (click)="Asignar(item)">
-                                                  <span>&nbsp;Asignar Atributos</span>
-                                                </a>
-                                              </li>
-                                              <li 
-                                               role="menuitem"><a class="fa fa-users" href="#" onclick="return false;"
-                                                  (click)="AsignarConfiguracion(item)">
-                                                  <span>&nbsp;Atributos</span>
-                                                </a>
-                                              </li>
-                                            </ul>
+                                        <td>
+                                          <div class="btn-group ">
+                                            <button type="button " class="btn btn-danger btn-sm mr-1"
+                                              (click)="Borrar(prospectos.prospectoId) "><i
+                                                class="fa fa-trash pr-2 "></i>Eliminar</button>
+                                           
                                           </div>
-                                          <button type="button" class="btn btn-success btn-sm mr-1" data-toggle="tooltip"
-                                            data-placement="top" title="Editar" (click)="Edit(item)"><i
-                                              class="fa fa-pencil"></i></button>
-                
-                                        </td> -->
+                                        </td>
                                       </tr>
                                     </tbody>
                               </table>

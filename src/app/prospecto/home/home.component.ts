@@ -178,4 +178,38 @@ export class HomeComponent implements OnInit {
 
   }
 
+
+ Borrar(uris){
+
+      this.service.Delete(uris)
+        .subscribe(
+          data => {
+            this.prospectos = data;
+            console.log(this.prospectos);
+            console.log(uris);
+            if (data.status == 200) {
+              
+              console.log("si");
+              
+  
+            } else if (data.status == 404) {
+              // this.toastr.warning(data.message, 'Advertencia!');
+            } else {
+              // this.toastr.error(data.message, 'Error!');
+            }
+            
+          },
+          Error => {
+            if (Error.status == 401) {
+   
+            } else {
+              // this.toastr.error('Ocurrio un error con el servicio', 'Error!');
+            }
+          }
+        );
+          this.ngOnInit();
+    this.hide();
+  }
+
+
 }

@@ -65,4 +65,8 @@ export class ProspectoServiceService {
     return this.http.post(this.apiUrl + url, data, options)
       .map(res => res.json());
   }
+
+  public Delete(url) {
+    return this.http.delete(this.apiUrl + "/"  + url );
+  }
 }
